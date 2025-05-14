@@ -8,6 +8,7 @@ REPO_NAME="zt-library"
 DEPLOY_USER="nonroot"
 WEB_ROOT="/"
 BRANCH_NAME="main"
+SPECIFIC_FOLDER="tms-cluster"  # specify the folder you want
 # -----------------------------
 REPO_DIR="$WEB_ROOT"
 GITHUB_ALIAS="github-$REPO_NAME"
@@ -25,9 +26,17 @@ else
 fi
 
 # -----------------------------
+# 🔄 Sparse-checkout to pull specific folder
+# -----------------------------
+cd "$REPO_DIR"
+echo "=== Enabling sparse-checkout for $SPECIFIC_FOLDER ==="
+sudo -u $DEPLOY_USER git sparse-checkout init --cone
+sudo -u $DEPLOY_USER git sparse-checkout set "$SPECIFIC_FOLDER"
+
+# -----------------------------
 # 🔐 Set Web Ownership
 # -----------------------------
 echo "=== Setting www-data ownership ==="
 sudo chown -R www-data:www-data "$REPO_DIR"
 
-echo "✅ Deployment or update completed at $REPO_DIR"
+echo "✅ Deployment or update completed for $SPECIFIC_FOLDER at $REPO_DIR"
