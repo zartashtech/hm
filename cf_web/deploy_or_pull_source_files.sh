@@ -5,7 +5,7 @@
 # -----------------------------
 GITHUB_USER="zartashtech"
 REPO_NAME="zt-library"
-DEPLOY_USER="ubuntu"
+DEPLOY_USER="nonroot"
 WEB_ROOT="/source_file"
 BRANCH_NAME="main"
 SPECIFIC_FOLDER="cf-web-cluster"  # specify the folder you want
