@@ -5,7 +5,7 @@
 # -----------------------------
 GITHUB_USER="zartashtech"
 REPO_NAME="zt-library"
-DEPLOY_USER="nonroot"
+DEPLOY_USER="ubuntu"
 # -----------------------------
 SSH_KEY_NAME="${REPO_NAME}_key"
 SSH_DIR="/home/$DEPLOY_USER/.ssh"
